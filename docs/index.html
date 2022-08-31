@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.purple-deep_orange.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#9c5db0">
+  <meta name="apple-mobile-web-app-title" content="Imagineer">
+  <meta name="application-name" content="Imagineer">
+  <meta name="msapplication-TileColor" content="#9c5db0">
+  <meta name="theme-color" content="#9c5db0">
+  <link rel="stylesheet" href="icomoon/style.css"></head>
+  <title>Imagineer - Idea Catalyst</title>
+
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <script
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous">
+  </script>
+  <script>
+      //Hacky stuff included to make this work because the mdl js is inserting the icon being replaced
+        window.onload=function(){
+          window.setTimeout(function(){
+              //Change the default menu icon to a gear because that's my vision
+              //So what if it isn't 'material design standard'?
+              $('.mdl-layout__drawer-button i').text('settings');
+          },0)
+        };
+  </script>
+
+  <style>.mdl-card{margin-top:5px;margin-bottom:5px;margin-left:auto;margin-right:auto;}</style>
+</head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <div class="mdl-layout-spacer"></div>
+          <span class="mdl-layout-title">Imagineer</span>
+          <div class="mdl-layout-spacer"></div>
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent mdl-js-ripple-effect" id="respin" onclick="displayIdea()">
+            <i class="material-icons">lightbulb_outline</i>
+            <i class="material-icons">autorenew</i>
+          </button>
+        </div>
+      </header>
+
+       <div class="mdl-layout__drawer">
+         <span class="mdl-layout-title">Links</span>
+         <span class="icomoon-imagineerer" style="font-size:80px;"></span>
+         <nav class="mdl-navigation">
+           <!--
+           <a class="mdl-navigation__link" href="">Please Ignore This Section</a>
+           <a class="mdl-navigation__link" href="">This part is not implemented yet</a>
+           <a class="mdl-navigation__link">
+            <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+             <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+               <span class="mdl-switch__label">Classic Mode</span>
+             </label>
+           </a>
+            <a class="mdl-navigation__link">
+             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+              <input type="checkbox" id="switch-2" class="mdl-switch__input" checked>
+                <span class="mdl-switch__label">Inoffensive Safe Mode</span>
+              </label>
+            </a>
+
+           <a class="mdl-navigation__link" href="">Development rule: options must come from main imagineer library!</a>
+           -->
+           <a class="mdl-navigation__link" href="https://ryanpetroff.ca/" target="_blank">Contact the creator, Ryan Petroff</a>
+           <a class="mdl-navigation__link" href="https://github.com/RyanCoordinator/PLN-imagineering" target="_blank">Open Source code repository for this imagineer frontend</a>
+           <a class="mdl-navigation__link" href="https://gitlab.com/petroff.ryan/ideacatalyst" target="_blank">Open source code repository for the NPM package 'imagineer' that powers this frontend</a>
+         </nav>
+       </div>
+
+      <main class="mdl-layout__content">
+        <div class="page-content mdl-grid">
+
+          <div class="mdl-card mdl-shadow--16dp mdl-cell--6-col mdl-button mdl-js-button mdl-js-ripple-effect">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text mdl-color-text--purple">Subject</h2>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <h4 class="imagineer-subject">
+                Respin Subject
+              </h4>
+            </div>
+            <div class="mdl-card__menu">
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">assignment</i>
+              </button>
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">question_answer</i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mdl-card mdl-shadow--16dp mdl-cell--6-col mdl-button mdl-js-button mdl-js-ripple-effect">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text mdl-color-text--purple">Object</h2>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <h4 class="imagineer-object">
+                Respin Object
+              </h4>
+            </div>
+            <div class="mdl-card__menu">
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">extension</i>
+              </button>
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">explore</i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mdl-card mdl-shadow--16dp mdl-cell--6-col mdl-button mdl-js-button mdl-js-ripple-effect">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text mdl-color-text--purple">Era</h2>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <h4 class="imagineer-era">
+                Tap here to Respin Era
+              </h4>
+            </div>
+            <div class="mdl-card__menu">
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">access_alarm</i>
+              </button>
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">date_range</i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mdl-card mdl-shadow--16dp mdl-cell--6-col mdl-button mdl-js-button mdl-js-ripple-effect">
+            <div class="mdl-card__title">
+              <h2 class="mdl-card__title-text mdl-color-text--purple">Mood</h2>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <h4 class="imagineer-mood">
+                Tap here to Respin Mood
+              </h4>
+            </div>
+            <div class="mdl-card__menu">
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">sentiment_very_satisfied</i>
+              </button>
+              <button class="mdl-button mdl-button--icon mdl-color-text--purple">
+                <i class="material-icons">mood_bad</i>
+              </button>
+            </div>
+          </div>
+
+          <div class="mdl-card mdl-shadow--16dp mdl-cell--12-col mdl-js-button mdl-js-ripple-effect" style="min-height:70px;">
+            <div class="mdl-card__supporting-text text-center" style="margin:auto; text-align:center;">
+              Imagineer and invent an idea that fits the given Subject, Object, Era, and Mood.
+              <br>
+              Be wacky! Go crazy! Get creative!
+              <br>  <br>  <br>
+              <span class="icomoon-imagineerer" style="font-size:140px;"></span>
+            </div>
+          </div>
+
+        </div>
+      </main>
+  </div>
+  <script>
+      /**
+     * An random idea seed generator.
+     */
+     function imagineer() {
+      //First set up all the possibilities
+        ideaCatalyst = {};
+        ideaCatalyst.subjects = ["Genetics","Philosophy","Politics","Electronics","Linguistics","Friendship","War","Peace","Education","Efficiency","Telecommunications","Mathematics","Space/Time","Existentialism","Chemistry","Biology","Computer Science","Internet","Cooking","Fishing","Trolling","Countertrolling","Terrorism","Doublethink","Financial Engineering","Democracy","Anarchy","Imagineering","Institutions","Randomness"];
+        ideaCatalyst.objects = ["Statue","Book","Manifesto","Consumer Product","Bacteria","Computer","Food","Building","Icon","Avatar","Clothing","Bike","Vehicle","Financial Product","Contract","Animal","Accessory","Tool","Sticker","Poster","Plan","Institution","Webapp"];
+        ideaCatalyst.eras = ["Tomorrow","Next Year","Next Decade (10 Years)","Next Century (100 Years)","Next Generation","Next Gigasecond (31.558 Years)","Next Millennium (1000 Years)","After time travel is discovered"];
+        ideaCatalyst.moods = ["Optimistic","Pessimistic","Suspicious","Loving","Tired","Inquisitive","Quixotic","Frantic","Hysterical","Enraged","Indignant","Joyous","Excited","Courageous","Stimulated","Energetic","Radioactive","Questing","Victorious","Meta"];
+          //Pick only one of these possible futures
+        newIdea = {};
+        newIdea.object = ideaCatalyst.objects[Math.floor(Math.random() * ideaCatalyst.objects.length)];
+        newIdea.subject = ideaCatalyst.subjects[Math.floor(Math.random() * ideaCatalyst.subjects.length)];
+        newIdea.mood = ideaCatalyst.moods[Math.floor(Math.random() * ideaCatalyst.moods.length)];
+        newIdea.era = ideaCatalyst.eras[Math.floor(Math.random() * ideaCatalyst.eras.length)];
+          //Know it
+        console.log(newIdea);
+          //Set it free
+        return newIdea;
+          //Allow it to set others free
+      }
+        //Make it happen
+
+      var displayIdea = function () {
+        var currentIdea = imagineer();
+        $('.imagineer-object').text(currentIdea.object);
+        $('.imagineer-subject').text(currentIdea.subject);
+        $('.imagineer-era').text(currentIdea.era);
+        $('.imagineer-mood').text(currentIdea.mood);
+      }
+
+      displayIdea();
+  </script>
+  <script src="icomoon/liga.js"></script>
+</body>
+
+</html>
